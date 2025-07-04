@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import AdminDashboard from './components/Admin/AdminDashboard';
+import DatabaseUserPage from './components/Admin/DatabaseUserPage';
+import ForgetPassword from './components/Auth/ForgetPassword';
+import Login from './components/Auth/Login';
+import SignUp from './components/Auth/SignUp';
+import MyTicket from './components/OperationTeam/MyTicket';
+import OperationTeamDashboard from './components/OperationTeam/OperationTeamDashboard';
+import Performance from './components/OperationTeam/Performance';
+import TicketApproval from './components/OperationTeam/TicketApproval';
+import CreateTicket from './components/users/CreateTicket';
+import Dashboard from './components/users/Dashboard';
+import EditUserProfile from './components/users/EditUserProfile';
+import MyTickets from './components/users/MyTickets';
+import UserProfile from './components/users/UserProfile';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DatabaseUserPage/>
+    </>
   );
 }
 
