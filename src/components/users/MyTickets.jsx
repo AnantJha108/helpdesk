@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { FaSearch, FaTachometerAlt, FaTicketAlt, FaClipboardList, FaBell, FaUser, FaExchangeAlt } from "react-icons/fa";
+import { FaSearch} from "react-icons/fa";
+import Header from "../includes/Header";
+import UserSidebar from "../includes/UserSidebar";
+import Footer from "../includes/Footer";
 
 const MyTickets = () => {
   const [search, setSearch] = useState("");
@@ -20,31 +23,14 @@ const MyTickets = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Topbar */}
-      <div className="bg-teal-400 flex items-center justify-between px-4 py-3">
-        <h1 className="text-white text-2xl font-bold italic">Helpdesk</h1>
-        <div className="flex space-x-4 items-center">
-          <span className="bg-black text-white text-xs px-2 py-1 rounded">BM</span>
-          <span className="bg-black text-white text-xs px-2 py-1 rounded">BI</span>
-          <FaBell className="text-black cursor-pointer" />
-          <FaUser className="text-black cursor-pointer" />
-          <FaExchangeAlt className="text-black cursor-pointer" />
-        </div>
-      </div>
+      <Header/>
 
       <div className="flex flex-1">
-        {/* Sidebar */}
-        <div className="bg-gray-200 w-48 p-4 space-y-6">
-          <SidebarItem icon={<FaTachometerAlt />} label="Dashboard" />
-          <SidebarItem icon={<FaTicketAlt />} label="New Ticket" />
-          <SidebarItem icon={<FaClipboardList />} label="My Ticket" />
-        </div>
+        <UserSidebar/>
 
-        {/* Main Content */}
         <div className="flex-1 p-6 overflow-x-auto">
           <h2 className="text-2xl font-semibold text-center mb-6">List of Ticket</h2>
 
-          {/* Search and Entries */}
           <div className="flex flex-col md:flex-row items-center justify-between mb-4 space-y-2 md:space-y-0">
             <div className="flex items-center border shadow px-2 rounded bg-gray-100">
               <input
@@ -67,7 +53,6 @@ const MyTickets = () => {
             </div>
           </div>
 
-          {/* Ticket Table */}
           <table className="w-full border">
             <thead className="bg-gray-100 text-left">
               <tr>
@@ -102,35 +87,20 @@ const MyTickets = () => {
             </tbody>
           </table>
 
-          {/* Footer Info */}
           <div className="mt-4 text-sm">
             Showing 1 to {tickets.length} of {tickets.length} entries
           </div>
 
-          {/* Pagination */}
           <div className="mt-2 text-right text-sm">
             &laquo;&lt; <span className="mx-2 font-bold">1</span> &gt;&raquo;
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-teal-400 text-center py-2 text-sm text-black">
-        Footer Area
-      </footer>
+      <Footer/>
     </div>
   );
 };
 
-// Sidebar Item
-const SidebarItem = ({ icon, label }) => (
-  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
-    {icon}
-    <span>{label}</span>
-  </div>
-);
-
-// Render star rating
 const renderStars = (rating) => {
   const full = Math.floor(rating);
   const half = rating % 1 !== 0;

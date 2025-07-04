@@ -1,45 +1,23 @@
 import React from 'react'
 import {
-    FaTachometerAlt,
-    FaTicketAlt,
-    FaClipboardList,
-    FaCogs,
-    FaBell,
     FaUser,
-    FaExchangeAlt,
     FaStar,
 } from "react-icons/fa";
+import Footer from '../includes/Footer';
+import OperationTeamSidebar from '../includes/OperationTeamSidebar';
+import Header from '../includes/Header';
 
 
 
 const Performance = () => {
     return (
         <div className="min-h-screen flex flex-col">
-            {/* Topbar */}
-            <div className="bg-teal-400 flex items-center justify-between px-4 py-3">
-                <h1 className="text-white text-2xl font-bold italic">Helpdesk</h1>
-                <div className="flex space-x-4 items-center">
-                    <span className="bg-black text-white text-xs px-2 py-1 rounded">BM</span>
-                    <span className="bg-black text-white text-xs px-2 py-1 rounded">BI</span>
-                    <FaBell className="text-black cursor-pointer" />
-                    <FaUser className="text-black cursor-pointer" />
-                    <FaExchangeAlt className="text-black cursor-pointer" />
-                </div>
-            </div>
-
-            {/* Body Section */}
+            <Header/>
             <div className="flex flex-1">
-                {/* Sidebar */}
-                <div className="bg-gray-200 w-48 p-4 space-y-6">
-                    <NavItem icon={<FaTachometerAlt />} label="Dashboard" />
-                    <NavItem icon={<FaTicketAlt />} label="Ticket Approval" />
-                    <NavItem icon={<FaClipboardList />} label="My Ticket" />
-                    <NavItem icon={<FaCogs />} label="Performance" />
-                </div>
+                <OperationTeamSidebar/>
                 <div className="flex-1 p-4 overflow-auto">
                     <h1 className="text-2xl font-semibold mb-6 text-black">Performance</h1>
                     <div className="w-full max-w-6xl grid md:grid-cols-3 gap-6">
-                        {/* Main Profile Section */}
                         <div className="md:col-span-2 space-y-4">
                             <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                                 <div className="bg-gray-200 p-4 rounded-xl">
@@ -76,7 +54,6 @@ const Performance = () => {
                             </div>
                         </div>
 
-                        {/* Operation List */}
                         <div className="space-y-4">
                             {["Operation Name 1", "Operation Name 2", "Operation Name 3"].map((name, index) => (
                                 <div key={index} className="flex items-center gap-4 bg-white p-3 shadow rounded-xl">
@@ -95,23 +72,12 @@ const Performance = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Footer */}
-            <footer className="bg-teal-400 text-center py-2 text-sm text-black">
-                Footer Area
-            </footer>
+            <Footer/>
         </div>
 
     )
 }
 
-
-const NavItem = ({ icon, label }) => (
-    <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
-        {icon}
-        <span>{label}</span>
-    </div>
-);
 
 
 export default Performance

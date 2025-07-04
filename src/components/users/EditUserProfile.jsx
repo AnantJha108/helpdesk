@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import UserSidebar from '../includes/UserSidebar';
+import Header from '../includes/Header';
+import Footer from '../includes/Footer';
 
 const EditUserProfile = () => {
      const [formData, setFormData] = useState({
@@ -24,27 +27,9 @@ const EditUserProfile = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-            {/* Header */}
-            <div className="bg-teal-400 p-4 flex items-center justify-between">
-                <h1 className="text-white text-2xl italic font-bold">Helpdesk</h1>
-                <div className="flex gap-3">
-                    <span className="bg-black text-white px-2 py-1 text-xs rounded">BM</span>
-                    <span className="bg-black text-white px-2 py-1 text-xs rounded">BI</span>
-                    <span className="text-black">🔔</span>
-                    <span className="text-black">👤</span>
-                    <span className="text-black">🔁</span>
-                </div>
-            </div>
-
+            <Header/>
             <div className="flex flex-1">
-                {/* Sidebar */}
-                <div className="bg-gray-200 w-48 p-4 space-y-6">
-                    <SidebarItem label="Dashboard" />
-                    <SidebarItem label="New Ticket" />
-                    <SidebarItem label="My Ticket" />
-                </div>
-
-                {/* Main Form Section */}
+                <UserSidebar/>
                 <div className="flex-1 p-6">
                     <h2 className="text-2xl font-semibold mb-6">User Profile</h2>
 
@@ -91,19 +76,10 @@ const EditUserProfile = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Footer */}
-            <footer className="bg-teal-400 text-center py-2 text-sm text-black">
-                Footer Area
-            </footer>
+            <Footer/>
         </div>
     )
 }
-
-
-const SidebarItem = ({ label }) => (
-  <div className="hover:font-semibold cursor-pointer">{label}</div>
-);
 
 
 export default EditUserProfile

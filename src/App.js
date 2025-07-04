@@ -1,6 +1,8 @@
+import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import './App.css';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import DatabaseUserPage from './components/Admin/DatabaseUserPage';
+import Setting from './components/Admin/Setting';
 import ForgetPassword from './components/Auth/ForgetPassword';
 import Login from './components/Auth/Login';
 import SignUp from './components/Auth/SignUp';
@@ -16,9 +18,14 @@ import UserProfile from './components/users/UserProfile';
 
 function App() {
   return (
-    <>
-      <DatabaseUserPage/>
-    </>
+    <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Dashboard/>}>
+          <Route path="admin" element={<AdminDashboard/>} />
+          <Route path="operationTeam" element={<OperationTeamDashboard/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,38 +1,18 @@
 import React from 'react'
 import {
-  FaTachometerAlt,
-  FaTicketAlt,
-  FaClipboardList,
-  FaBell,
-  FaUser,
-  FaExchangeAlt,
   FaPaperclip,
 } from "react-icons/fa";
+import UserSidebar from '../includes/UserSidebar';
+import Header from '../includes/Header';
+import Footer from '../includes/Footer';
 
 const CreateTicket = () => {
     return (
         <div className="min-h-screen flex flex-col">
-            {/* Topbar */}
-            <div className="bg-teal-400 flex items-center justify-between px-4 py-3">
-                <h1 className="text-white text-2xl font-bold italic">Helpdesk</h1>
-                <div className="flex space-x-4 items-center">
-                    <span className="bg-black text-white text-xs px-2 py-1 rounded">BM</span>
-                    <span className="bg-black text-white text-xs px-2 py-1 rounded">BI</span>
-                    <FaBell className="text-black cursor-pointer" />
-                    <FaUser className="text-black cursor-pointer" />
-                    <FaExchangeAlt className="text-black cursor-pointer" />
-                </div>
-            </div>
-
+            <Header/>
             <div className="flex flex-1">
-                {/* Sidebar */}
-                <div className="bg-gray-200 w-48 p-4 space-y-6">
-                    <SidebarItem icon={<FaTachometerAlt />} label="Dashboard" />
-                    <SidebarItem icon={<FaTicketAlt />} label="New Ticket" />
-                    <SidebarItem icon={<FaClipboardList />} label="My Ticket" />
-                </div>
+                <UserSidebar/>
 
-                {/* Main Content */}
                 <div className="flex-1 p-6">
                     <h2 className="text-2xl font-semibold text-center mb-6">Create New Ticket</h2>
 
@@ -47,7 +27,6 @@ const CreateTicket = () => {
                         <Input label="Type" />
                         <Input label="Priority" />
 
-                        {/* Captcha */}
                         <div className="md:cols-2 mt-4">
                             <div className="bg-white p-4 border rounded flex items-center justify-between">
                                 <label className="flex items-center space-x-2">
@@ -62,7 +41,6 @@ const CreateTicket = () => {
                             </div>
                         </div>
 
-                        {/* Submit Button */}
                         <div className="md:cols-2 mt-4">
                             <button
                                 type="submit"
@@ -74,16 +52,11 @@ const CreateTicket = () => {
                     </form>
                 </div>
             </div>
-
-            {/* Footer */}
-            <footer className="bg-teal-400 text-center py-2 text-sm text-black">
-                Footer Area
-            </footer>
+            <Footer/>
         </div>
     )
 }
 
-// Reusable Input
 const Input = ({ label, type = "text", className = "" }) => (
   <div className={`flex flex-col ${className}`}>
     <label className="mb-1">{label}:</label>
@@ -91,7 +64,6 @@ const Input = ({ label, type = "text", className = "" }) => (
   </div>
 );
 
-// Reusable Textarea with optional icon
 const Textarea = ({ label, icon }) => (
   <div className="flex flex-col">
     <label className="mb-1">{label}:</label>
@@ -106,14 +78,6 @@ const Textarea = ({ label, icon }) => (
         </div>
       )}
     </div>
-  </div>
-);
-
-// Sidebar Item
-const SidebarItem = ({ icon, label }) => (
-  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
-    {icon}
-    <span>{label}</span>
   </div>
 );
 
